@@ -21,8 +21,8 @@ getData()
         Pokemon
     </h1>
     <ul>
-        <li v-for="(pokemon, index) in pokemons" :key="index">
-            <router-link :to="`/pokemons/${pokemon.name}`">{{ pokemon.name }}</router-link>
+        <li v-for="(poke, index) in pokemons" :key="index">
+            <router-link :to="`/pokemons/${poke.name}`">{{ poke.name }}</router-link>
         </li>
     </ul>
 </template>
