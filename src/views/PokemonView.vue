@@ -2,12 +2,16 @@
 import { RouterLink } from "vue-router";
 import { userGetData } from "@/composables/getData"
 
-const { data, getData, loading } = userGetData();
+const { data, getData, loading, error } = userGetData();
 
 getData("https://pokeapi.co/api/v2/pokemon")
 </script>
 
 <template>
+    <h1>
+        Pokemon
+    </h1>
+
     <div v-if="loading">
         <div class="mt-5 text-center">
             <div class="spinner-border text-primary" role="status">
@@ -16,10 +20,8 @@ getData("https://pokeapi.co/api/v2/pokemon")
         </div>
         <p class="text-center mt-2">Cargando...</p>
     </div>
+    <div v-else-if="error" class="alert alert-danger">{{ error }}</div>
     <div v-else>
-        <h1>
-            Pokemon
-        </h1>
         <ul>
             <li v-for="(poke, index) in data.results" :key="index">
                 <router-link :to="`/pokemons/${poke.name}`">{{ poke.name }}</router-link>

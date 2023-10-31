@@ -2,7 +2,7 @@
 import { useRoute, useRouter } from "vue-router";
 import { userGetData } from "@/composables/getData"
 
-const { data, getData, loading } = userGetData();
+const { data, getData, loading, error } = userGetData();
 
 const route = useRoute();
 const router = useRouter();
@@ -16,6 +16,7 @@ console.log(data);
 </script>
 
 <template>
+    <div class="alert alert-danger mt-2" v-if="error">No existe el pokemon</div>
     <div v-if="loading">
         <div class="mt-5 text-center">
             <div class="spinner-border text-primary" role="status">
