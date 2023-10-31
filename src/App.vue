@@ -13,7 +13,7 @@ import { RouterLink, RouterView } from 'vue-router'
       <router-link class="btn btn-outline-primary" to="/pokemon">Pokemons</router-link>
     </div>
   </nav>
-  <div class="container">
+  <div class="container text-center">
     <RouterView />
   </div>
 </template>

@@ -22,8 +22,8 @@ getData("https://pokeapi.co/api/v2/pokemon")
     </div>
     <div v-else-if="error" class="alert alert-danger">{{ error }}</div>
     <div v-else>
-        <ul>
-            <li v-for="(poke, index) in data.results" :key="index">
+        <ul class="list-group">
+            <li class="list-group-item" v-for="(poke, index) in data.results" :key="index">
                 <router-link :to="`/pokemons/${poke.name}`">{{ poke.name }}</router-link>
             </li>
         </ul>
