@@ -14,7 +14,7 @@ const back = () => {
 const getData = async () => {
     try {
         const { data } = await axios.get(`https://pokeapi.co/api/v2/pokemon/${route.params.name}`)
-        pokeSprite.value = data.sprites.front_default;
+        pokeSprite.value = data.sprites?.front_default;
     } catch (error) {
         console.error(error)
         pokeSprite.value = null;
