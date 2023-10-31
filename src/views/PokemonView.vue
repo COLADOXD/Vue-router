@@ -27,5 +27,13 @@ getData("https://pokeapi.co/api/v2/pokemon")
                 <router-link :to="`/pokemons/${poke.name}`">{{ poke.name }}</router-link>
             </li>
         </ul>
+        <div class="my-2">
+            <button class="btn btn-outline-danger me-2" @click="getData(data.previous)" :disabled="data.previous === null">
+                Previous
+            </button>
+            <button class="btn btn-outline-primary" @click="getData(data.next)" :disabled="data.next === null">
+                Next
+            </button>
+        </div>
     </div>
 </template>
