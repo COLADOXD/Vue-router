@@ -13,22 +13,27 @@ const router = createRouter({
     {
       path: "/about",
       name: "about",
-      component: () => import("../views/AboutView.vue"),
+      component: () => import("@/views/AboutView.vue"),
     },
     {
       path: "/pokemon",
       name: "pokemon",
-      component: () => import("../views/PokemonView.vue"),
+      component: () => import("@/views/PokemonView.vue"),
     },
     {
       path: "/pokemons/:name",
       name: "poke",
-      component: () => import("../views/PokeView.vue"),
+      component: () => import("@/views/PokeView.vue"),
+    },
+    {
+      path: "/Favorite",
+      name: "Favorite",
+      component: () => import("@/views/FavoriteView.vue"),
     },
     {
       path: "/:pathMatch(.*)*",
       name: "NotFound",
-      component: () => import("../views/NotFoundView.vue"),
+      component: () => import("@/views/NotFoundView.vue"),
     },
   ],
 });
