@@ -1,6 +1,7 @@
 <script setup>
 import { useFavoriteStore } from "@/stores/favorite";
 import { storeToRefs } from 'pinia';
+import { RouterLink } from "vue-router";
 
 const { favorites } = storeToRefs(useFavoriteStore());
 const { remove } = useFavoriteStore();
@@ -16,6 +17,9 @@ const { remove } = useFavoriteStore();
             <div>
                 {{ favorite.name }}
             </div>
+            <router-link class="btn btn-sm btn-outline-primary me-2" :to="`/pokemons/${favorite.name}`">
+                Más info
+            </router-link>
             <button @click="remove(favorite.id)" class="btn btn-danger btn-sm">Delete</button>
         </li>
     </ul>
