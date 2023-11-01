@@ -3,14 +3,20 @@ import { useFavoriteStore } from "@/stores/favorite";
 import { storeToRefs } from 'pinia';
 
 const { favorites } = storeToRefs(useFavoriteStore());
+const { remove } = useFavoriteStore();
 </script>
 
 <template>
     <h1>Favorite</h1>
-    <div v-if="favorites !== 0">
+    <div v-if="favorites.length === 0">
         No hay favoritos
     </div>
     <ul v-else>
-        <li v-for="(favorite) in favorites" :key="favorite.id">{{ favorite.name }}</li>
+        <li v-for="(favorite) in favorites" :key="favorite.id">
+            <div>
+                {{ favorite.name }}
+            </div>
+            <button @click="remove(favorite.id)" class="btn btn-danger btn-sm">Delete</button>
+        </li>
     </ul>
 </template>
