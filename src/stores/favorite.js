@@ -13,9 +13,11 @@ export const useFavoriteStore = defineStore("favorite", () => {
     favorites.value = favorites.value.filter((item) => item.id !== id);
   };
 
+  const findPoke = (poke) => favorites.value.find((item) => item.name === poke);
   return {
     favorites,
     addFavorite,
     remove,
+    findPoke,
   };
 });
