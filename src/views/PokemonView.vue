@@ -1,6 +1,9 @@
 <script setup>
 import { RouterLink } from "vue-router";
 import { userGetData } from "@/composables/getData"
+import { useCounterStore } from '../stores/counter';
+
+const useCounter = useCounterStore()
 
 const { data, getData, loading, error } = userGetData();
 
@@ -11,7 +14,9 @@ getData("https://pokeapi.co/api/v2/pokemon")
     <h1>
         Pokemon
     </h1>
-
+    <h1>Home counter: {{ useCounter.count }}</h1>
+    <h2>Double {{ useCounter.double }}</h2>
+    <button @click="useCounter.increment">Increment</button>
     <div v-if="loading">
         <div class="mt-5 text-center">
             <div class="spinner-border text-primary" role="status">
