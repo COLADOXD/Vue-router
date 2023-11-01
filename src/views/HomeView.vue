@@ -1,6 +1,6 @@
 <script setup>
 import { storeToRefs } from 'pinia';
-import { useCounterStore } from '../stores/counter';
+import { useCounterStore } from '@/stores/counter';
 
 const { increment } = useCounterStore()
 // storeToRefs se utiliza con valores reactivos y computados
