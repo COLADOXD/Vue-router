@@ -5,6 +5,7 @@ import { RouterLink } from "vue-router";
 
 const { favorites } = storeToRefs(useFavoriteStore());
 const { remove } = useFavoriteStore();
+// zzz
 </script>
 
 <template>
